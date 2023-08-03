@@ -9,7 +9,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.leemccormick.mealzapp.model.response.MealResponse
+import com.leemccormick.mealzapp.ui.details.MealDetailsScreen
+import com.leemccormick.mealzapp.ui.details.MealDetailsViewModel
 import com.leemccormick.mealzapp.ui.meals.MealsCategoriesScreen
 import com.leemccormick.mealzapp.ui.theme.MealzAppTheme
 import kotlinx.coroutines.Dispatchers
@@ -21,8 +28,30 @@ class MainActivity : ComponentActivity() {
         // val viewModel by viewModels<MealsCategoriesViewModel>() --> Another way to init viewModel, not so correct.
         setContent {
             MealzAppTheme {
-                MealsCategoriesScreen()
+                FoodiezApp()
             }
+        }
+    }
+}
+
+@Composable
+private fun FoodiezApp() {
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "destination_meals_list") {
+        composable(route = "destination_meals_list") {
+            MealsCategoriesScreen() { navigationMealId ->
+navController.navigate("destination_meal_details/$navigationMealId")
+            }
+        }
+
+        composable(
+            route = "destination_meal_details/{meal_category_id}",
+            arguments = listOf(navArgument("meal_category_id") {
+                type = NavType.StringType
+            })
+        ) {
+            val viewModel: MealDetailsViewModel = viewModel()
+            MealDetailsScreen(viewModel.mealState.value)
         }
     }
 }
@@ -31,7 +60,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     MealzAppTheme {
-        MealsCategoriesScreen()
+        MealsCategoriesScreen({})
     }
 }
 
