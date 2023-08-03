@@ -25,6 +25,21 @@ While building not less than 5 Android projects with Compose, this course will t
 ### Basics of Jetpack Compose
 - Start a new jetpack compose project.
 - Learn basic Kotlin
+
+
+### Profile Card App
+- Start a new jetpack compose project.
+- Learn basic Kotlin
+<img width="1644" alt="Screen Shot 2023-08-02 at 12 06 46 PM" src="https://github.com/leemccormick/Jetpack_Compose_Crash_for_Android_with_Kotlin/assets/57606580/030c102e-4b60-4df1-b5e7-2a7ae8067437">
+
+
+### Mealz App
+- Start a new jetpack compose project.
+- Learn basic Kotlin
+<img width="1707" alt="Screen Shot 2023-08-02 at 7 22 36 PM" src="https://github.com/leemccormick/Jetpack_Compose_Crash_for_Android_with_Kotlin/assets/57606580/f088d177-29c3-4886-bd99-d74fb392adfa">
+![Screenshot_20230802_162204](https://github.com/leemccormick/Jetpack_Compose_Crash_for_Android_with_Kotlin/assets/57606580/7886eace-e5f0-4540-9f62-8ff794684916)
+
+
   
 ## Source
 - Jetpack_Compose_Crash_for_Android_with_Kotlin by Catalin Ghita
