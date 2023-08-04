@@ -32,12 +32,24 @@ val Typography = Typography(
         fontSize = 20.sp,
         letterSpacing = 2.sp
     ),
+    h3 = TextStyle(
+        fontFamily = FontFamily.Monospace,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 18.sp,
+        letterSpacing = 2.sp
+    ),
     h1 = TextStyle(
         fontFamily = FontFamily.Cursive,
         fontWeight = FontWeight.ExtraBold,
         fontSize = 32.sp,
         letterSpacing = 2.sp
-    )
+    ),
+    caption = TextStyle(
+        fontFamily = FontFamily.Monospace,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        letterSpacing = 1.sp
+    ),
     /* Other default text styles to override
     button = TextStyle(
         fontFamily = FontFamily.Default,

@@ -12,12 +12,17 @@ import kotlinx.coroutines.launch
 
 class MealDetailsViewModel(private val repository: MealsRepository = MealsRepository.getInstance()) :
     ViewModel() {
-
     val mealState: MutableState<Meal?> = mutableStateOf(null)
     val ingredientsState: MutableState<List<String>> = mutableStateOf(emptyList())
 
     init {
-        refreshRandomMeal()
+
+        val selectedMeal = repository.getSelectedMeal()
+        if (selectedMeal != null) {
+            refreshMeal(selectedMeal)
+        } else {
+            refreshRandomMeal()
+        }
     }
 
     fun refreshRandomMeal() {
@@ -26,6 +31,11 @@ class MealDetailsViewModel(private val repository: MealsRepository = MealsReposi
             mealState.value = meal
             ingredientsState.value = getIngredients()
         }
+    }
+
+    private fun refreshMeal(selectedMeal: Meal?) {
+        mealState.value = selectedMeal
+        ingredientsState.value = getIngredients()
     }
 
     private suspend fun getRandomMeal(): Meal? {
