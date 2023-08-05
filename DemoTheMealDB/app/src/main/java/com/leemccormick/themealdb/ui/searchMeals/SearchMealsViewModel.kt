@@ -11,7 +11,6 @@ import com.leemccormick.themealdb.model.response.Meal
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
 class SearchMealsViewModel(private val repository: MealsRepository = MealsRepository.getInstance()) :
     ViewModel() {
     private val randomSearchTerms = arrayOf(
