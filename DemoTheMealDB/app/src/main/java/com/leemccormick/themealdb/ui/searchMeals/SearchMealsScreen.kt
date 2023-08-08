@@ -37,7 +37,7 @@ import com.leemccormick.themealdb.ui.theme.TheMealDBTheme
 fun SearchMealsScreen(navigationCallback: (String) -> Unit) {
     val viewModel: SearchMealsViewModel = viewModel()
     val searchMeals = viewModel.searchMealsState.value
-    val searchTermState = viewModel.searchTermState
+
     Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()) {
         LazyColumn(
             contentPadding = PaddingValues(16.dp)

@@ -1,12 +1,10 @@
 package com.leemccormick.themealdb
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -14,8 +12,9 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.leemccormick.themealdb.model.repository.MealsRepository
 import com.leemccormick.themealdb.ui.filterMeals.FilterMealsScreen
+import com.leemccormick.themealdb.ui.filterMeals.FilterMode
 import com.leemccormick.themealdb.ui.mealDetails.MealDetailsScreen
-import com.leemccormick.themealdb.ui.mealDetails.MealDetailsViewModel
+import com.leemccormick.themealdb.ui.mealsList.MealsListScreen
 import com.leemccormick.themealdb.ui.searchMeals.SearchMealsScreen
 import com.leemccormick.themealdb.ui.theme.TheMealDBTheme
 
@@ -34,6 +33,7 @@ enum class Screen(val destination: String) {
     Detail("destination_meal_details"),
     Filter("destination_filter_meals"),
     Search("destination_search_meals"),
+    List("destination_meals_list"),
 }
 
 @Composable
@@ -51,15 +51,20 @@ private fun TheMealDBApp() {
         }
 
         composable(route = Screen.Filter.destination) {
-            FilterMealsScreen()
+            FilterMealsScreen { filterMode ->
+                MealsRepository.getInstance().savedSelectedFilterMode(filterMode)
+                navController.navigate("${Screen.List.destination}/${filterMode.searchTerm}")
+//                if (filterMode == FilterMode.Categories) {
+//                    MealsRepository.getInstance().savedSelectedCategory(categoryName)
+//                } else {
+//
+//                }
+            }
         }
 
         composable(route = Screen.Search.destination) {
             SearchMealsScreen() { mealId ->
-                val testRoute = "${Screen.Detail.destination}/$mealId"
-                Log.d("TAG", "$testRoute")
                 navController.navigate("${Screen.Detail.destination}/$mealId")
-
             }
         }
 
@@ -77,6 +82,42 @@ private fun TheMealDBApp() {
                 }
             }
         }
+
+
+        composable(
+            route = "${Screen.List.destination}/{filterName}",
+            arguments = listOf(navArgument("filterName") {
+                type = NavType.StringType
+            })
+        ) {
+            MealsListScreen()
+        }
+//
+//        composable(
+//            route = "${Screen.List.destination}/{category}",
+//            arguments = listOf(navArgument("category_name") {
+//                type = NavType.StringType
+//            })
+//        ) { backStackEntry ->
+//            backStackEntry.arguments?.let {
+//                val categoryName = it.getString("category_name")
+//                MealsRepository.getInstance().savedSelectedCategory(categoryName)
+//
+//            }
+//        }
+
+//        composable(
+//            route = "${Screen.List.destination}/{country}",
+//            arguments = listOf(navArgument("country_name") {
+//                type = NavType.StringType
+//            })
+//        ) { backStackEntry ->
+//            backStackEntry.arguments?.let {
+//                val countryName = it.getString("country_name")
+//                MealsRepository.getInstance().savedSelectedCountry(countryName)
+//
+//            }
+//        }
     }
 }
 

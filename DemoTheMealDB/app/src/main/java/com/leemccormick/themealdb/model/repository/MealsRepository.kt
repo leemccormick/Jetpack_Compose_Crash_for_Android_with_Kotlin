@@ -5,6 +5,7 @@ import com.leemccormick.themealdb.model.response.Area
 import com.leemccormick.themealdb.model.response.Categories
 import com.leemccormick.themealdb.model.response.Meal
 import com.leemccormick.themealdb.model.response.Meals
+import com.leemccormick.themealdb.ui.filterMeals.FilterMode
 
 class MealsRepository(private val webService: MealsWebService = MealsWebService()) {
     private var cachedRandomMeal: Meal? = null
@@ -15,7 +16,7 @@ class MealsRepository(private val webService: MealsWebService = MealsWebService(
     private var cachedCategories: Categories? = null
     private var cachedMealsByCategory: Meals? = null
     private var cachedMealById: Meal? = null
-
+    private var cachedFilterMode: FilterMode? = null
 
     suspend fun getRandomMeal(): Meal? {
         val response = webService.getRandomMeal()
@@ -47,7 +48,6 @@ class MealsRepository(private val webService: MealsWebService = MealsWebService(
         return response
     }
 
-
     suspend fun getCategories(): Categories {
         val response = webService.getListAllCategories()
         cachedCategories = response
@@ -64,8 +64,16 @@ class MealsRepository(private val webService: MealsWebService = MealsWebService(
         cachedSelectedMeal = cachedSearchMeals?.meals?.firstOrNull { it.id == mealId }
     }
 
+    fun savedSelectedFilterMode(filter: FilterMode) {
+        cachedFilterMode = filter
+    }
+
     fun getSelectedMeal(): Meal? {
         return cachedSelectedMeal
+    }
+
+    fun getSelectedFilterMode(): FilterMode? {
+        return cachedFilterMode
     }
 
     // This companion object for Singleton
