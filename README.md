@@ -45,7 +45,18 @@ While building not less than 5 Android projects with Compose, this course will t
 - Amimation with Compose
   
 <img width="1707" alt="Screen Shot 2023-08-02 at 7 22 36 PM" src="https://github.com/leemccormick/Jetpack_Compose_Crash_for_Android_with_Kotlin/assets/57606580/f088d177-29c3-4886-bd99-d74fb392adfa">
-  
+
+### The Meal DB : Demo App
+- Build my own app from ground up.
+- Learn more about Jetpack Compose
+- Navigation and passing data between screen
+- API from https://www.themealdb.com/
+<img width="1542" alt="Screen Shot 2023-08-08 at 6 49 46 PM" src="https://github.com/leemccormick/Jetpack_Compose_Crash_for_Android_with_Kotlin/assets/57606580/863ca6f6-786d-408f-89e9-9b0d1f431599">
+<img width="1557" alt="Screen Shot 2023-08-08 at 6 49 31 PM" src="https://github.com/leemccormick/Jetpack_Compose_Crash_for_Android_with_Kotlin/assets/57606580/c287ad60-abb6-4130-a795-956382510003">
+<img width="1558" alt="Screen Shot 2023-08-08 at 6 49 12 PM" src="https://github.com/leemccormick/Jetpack_Compose_Crash_for_Android_with_Kotlin/assets/57606580/9c42efc7-4901-4fd8-abaa-488a67bee99a">
+
+<img width="1569" alt="Screen Shot 2023-08-08 at 6 50 02 PM" src="https://github.com/leemccormick/Jetpack_Compose_Crash_for_Android_with_Kotlin/assets/57606580/e4395582-cd65-4c13-89ca-67a0d3c9aa0e">
+
 ## Source
 - Jetpack_Compose_Crash_for_Android_with_Kotlin by Catalin Ghita
 - https://www.udemy.com/
