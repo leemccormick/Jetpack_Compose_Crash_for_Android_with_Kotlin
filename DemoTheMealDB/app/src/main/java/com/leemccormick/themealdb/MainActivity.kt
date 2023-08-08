@@ -54,11 +54,6 @@ private fun TheMealDBApp() {
             FilterMealsScreen { filterMode ->
                 MealsRepository.getInstance().savedSelectedFilterMode(filterMode)
                 navController.navigate("${Screen.List.destination}/${filterMode.searchTerm}")
-//                if (filterMode == FilterMode.Categories) {
-//                    MealsRepository.getInstance().savedSelectedCategory(categoryName)
-//                } else {
-//
-//                }
             }
         }
 
@@ -83,41 +78,16 @@ private fun TheMealDBApp() {
             }
         }
 
-
         composable(
             route = "${Screen.List.destination}/{filterName}",
             arguments = listOf(navArgument("filterName") {
                 type = NavType.StringType
             })
         ) {
-            MealsListScreen()
+            MealsListScreen() { mealId ->
+                navController.navigate("${Screen.Detail.destination}/$mealId")
+            }
         }
-//
-//        composable(
-//            route = "${Screen.List.destination}/{category}",
-//            arguments = listOf(navArgument("category_name") {
-//                type = NavType.StringType
-//            })
-//        ) { backStackEntry ->
-//            backStackEntry.arguments?.let {
-//                val categoryName = it.getString("category_name")
-//                MealsRepository.getInstance().savedSelectedCategory(categoryName)
-//
-//            }
-//        }
-
-//        composable(
-//            route = "${Screen.List.destination}/{country}",
-//            arguments = listOf(navArgument("country_name") {
-//                type = NavType.StringType
-//            })
-//        ) { backStackEntry ->
-//            backStackEntry.arguments?.let {
-//                val countryName = it.getString("country_name")
-//                MealsRepository.getInstance().savedSelectedCountry(countryName)
-//
-//            }
-//        }
     }
 }
 

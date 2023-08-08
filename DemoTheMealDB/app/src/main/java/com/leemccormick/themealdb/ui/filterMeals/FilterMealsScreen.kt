@@ -91,6 +91,7 @@ fun CategoryView(
                 RoundedCornerShape(12.dp)
             )
             .clickable {
+                viewModel.setFilterModeBySelectedCategory(category)
                 navigationCallback(viewModel.getFilterModeBySelectedItem("${category.name}"))
             }
     ) {

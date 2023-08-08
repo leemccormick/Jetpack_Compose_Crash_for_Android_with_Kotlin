@@ -54,7 +54,11 @@ fun MealDetailsScreen(navigationCallback: (Screen) -> Unit) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top,
             ) {
-                MealNameView("${meal?.name}")
+                MealNameView(
+                    "${meal?.name}",
+                    Modifier.padding(start = 8.dp, end = 8.dp, top = 0.dp, bottom = 8.dp)
+                )
+
                 MealDetailsScrollView(meal, ingredients)
             }
         }
@@ -62,12 +66,12 @@ fun MealDetailsScreen(navigationCallback: (Screen) -> Unit) {
 }
 
 @Composable
-fun MealNameView(name: String) {
+fun MealNameView(name: String, modifier: Modifier) {
     Text(
         text = name,
         style = MaterialTheme.typography.h5,
         textAlign = TextAlign.Center,
-        modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 0.dp, bottom = 8.dp)
+        modifier = modifier
     )
 }
 

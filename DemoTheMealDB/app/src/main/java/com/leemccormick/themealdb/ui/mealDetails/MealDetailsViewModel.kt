@@ -16,10 +16,13 @@ class MealDetailsViewModel(private val repository: MealsRepository = MealsReposi
     val ingredientsState: MutableState<List<String>> = mutableStateOf(emptyList())
 
     init {
-
         val selectedMeal = repository.getSelectedMeal()
+        val cachedMealById = repository.getCachedMealById()
+
         if (selectedMeal != null) {
             refreshMeal(selectedMeal)
+        } else if (cachedMealById != null) {
+            refreshMeal(cachedMealById)
         } else {
             refreshRandomMeal()
         }
