@@ -57,9 +57,15 @@ While building not less than 5 Android projects with Compose, this course will t
 
 <img width="1569" alt="Screen Shot 2023-08-08 at 6 50 02 PM" src="https://github.com/leemccormick/Jetpack_Compose_Crash_for_Android_with_Kotlin/assets/57606580/e4395582-cd65-4c13-89ca-67a0d3c9aa0e">
 
+### Get Going With Gradle
+- Learn more about gradle from youtube
+- Gradle Course for Beginer by Tom Gregory 
+
 ## Source
 - Jetpack_Compose_Crash_for_Android_with_Kotlin by Catalin Ghita
 - https://www.udemy.com/
+- https://www.youtube.com/watch?v=So0j4RnoKkU
+- https://get-going-with-gradle.tomgregory.com/get-going-with-gradle.pdf
 
 ## Android Development Project by Lee McCormick
 Learning Android Development is my next level of being an mobile engineer. Enjoy learning it until I am a professional mobile developer. This project was built by following the tutorial and source code online.
